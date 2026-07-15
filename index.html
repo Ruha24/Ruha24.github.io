@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Руслан Иванов — C++ / Qt разработчик</title>
+<meta name="description" content="C++ разработчик с коммерческим опытом. Десктопные приложения на C++17/20, Qt, PostgreSQL, CMake.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter+Tight:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B0D10;
+  --panel:#121519;
+  --panel-2:#171B21;
+  --line:#232830;
+  --text:#E6E9EE;
+  --muted:#868F9D;
+  --signal:#41CD52;      /* Qt green */
+  --signal-dim:rgba(65,205,82,.1);
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --sans:'Inter Tight',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+nav{position:sticky;top:0;z-index:50;background:rgba(11,13,16,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:-.02em}
+.logo b{color:var(--signal)}
+.nav-links{display:flex;gap:26px;font-family:var(--mono);font-size:13px}
+.nav-links a{text-decoration:none;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+@media(max-width:680px){.nav-links{display:none}}
+
+.hero{padding:96px 0 80px;position:relative;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(var(--line) 1px,transparent 1px) 0 0/100% 32px,
+             linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/32px 100%;
+  opacity:.3;
+  mask-image:radial-gradient(ellipse 70% 60% at 28% 40%,#000 0%,transparent 75%);
+  pointer-events:none;
+}
+.hero-in{position:relative}
+.status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--signal);
+  border:1px solid rgba(65,205,82,.3);background:var(--signal-dim);padding:5px 12px;border-radius:100px;margin-bottom:28px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--signal);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-size:clamp(34px,5.6vw,60px);font-weight:800;line-height:1.06;letter-spacing:-.035em;max-width:20ch;margin-bottom:24px}
+h1 em{font-style:normal;color:var(--signal)}
+.lede{font-size:19px;color:var(--muted);max-width:56ch;margin-bottom:36px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font-family:var(--mono);font-size:14px;font-weight:500;padding:13px 22px;border-radius:8px;
+  text-decoration:none;border:1px solid var(--line);transition:.2s;display:inline-block}
+.btn-a{background:var(--signal);color:#06210A;border-color:var(--signal);font-weight:700}
+.btn-a:hover{background:#5BDD6B;transform:translateY(-2px)}
+.btn-b{color:var(--text)}
+.btn-b:hover{border-color:var(--muted);background:var(--panel)}
+
+
+section{padding:88px 0}
+.eyebrow{font-family:var(--mono);font-size:12px;color:var(--signal);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.03em;margin-bottom:14px}
+.sub{color:var(--muted);max-width:58ch;margin-bottom:44px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:26px;
+  transition:.25s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.card::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--signal);
+  transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.card:hover{border-color:#31384380;transform:translateY(-4px)}
+.card:hover::after{transform:scaleX(1)}
+.card-meta{font-family:var(--mono);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+.star{color:var(--signal)}
+.card h3{font-size:21px;font-weight:700;letter-spacing:-.02em;margin:8px 0 10px}
+.card p{font-size:15px;color:var(--muted);margin-bottom:18px}
+.card ul{list-style:none;margin:0 0 18px;font-size:14px;color:var(--muted)}
+.card li{padding-left:18px;position:relative;margin-bottom:6px}
+.card li::before{content:"›";position:absolute;left:0;color:var(--signal);font-family:var(--mono);font-weight:700}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}
+.tag{font-family:var(--mono);font-size:11px;color:var(--muted);border:1px solid var(--line);padding:3px 9px;border-radius:5px}
+.card-link{display:inline-block;margin-top:18px;font-family:var(--mono);font-size:13px;color:var(--signal);text-decoration:none}
+.card-link:hover{text-decoration:underline}
+.gh-note{margin-top:32px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.gh-note a{color:var(--signal);text-decoration:none}
+.gh-note a:hover{text-decoration:underline}
+
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:start}
+@media(max-width:880px){.about{grid-template-columns:1fr;gap:36px}}
+.about p{margin-bottom:16px;color:var(--muted);font-size:17px}
+.about p strong{color:var(--text);font-weight:500}
+.stack-box{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px}
+.stack-t{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px}
+.stack-t:not(:first-child){margin-top:22px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--mono);font-size:12px;background:var(--panel-2);border:1px solid var(--line);padding:5px 10px;border-radius:6px}
+
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:880px){.prices{grid-template-columns:1fr}}
+.price{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:30px;display:flex;flex-direction:column}
+.price.hi{border-color:var(--signal);position:relative}
+.price.hi::before{content:"чаще всего";position:absolute;top:-10px;left:30px;font-family:var(--mono);font-size:10px;
+  text-transform:uppercase;letter-spacing:.06em;background:var(--signal);color:#06210A;padding:3px 10px;border-radius:100px;font-weight:700}
+.price h3{font-size:19px;font-weight:700;margin-bottom:6px}
+.price-desc{font-size:14px;color:var(--muted);margin-bottom:20px;min-height:44px}
+.price ul{list-style:none;margin:4px 0 22px;flex:1}
+.price li{font-size:14px;color:var(--muted);padding-left:20px;position:relative;margin-bottom:9px}
+.price li::before{content:"→";position:absolute;left:0;color:var(--signal);font-family:var(--mono)}
+.price .btn{text-align:center}
+
+.contact{background:var(--panel);border-block:1px solid var(--line)}
+.form{max-width:560px}
+.field{margin-bottom:18px}
+label{display:block;font-family:var(--mono);font-size:12px;color:var(--muted);margin-bottom:7px}
+input,textarea,select{width:100%;background:var(--ink);border:1px solid var(--line);border-radius:8px;
+  padding:12px 14px;color:var(--text);font-family:var(--sans);font-size:15px;transition:.2s}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--signal);box-shadow:0 0 0 3px var(--signal-dim)}
+textarea{resize:vertical;min-height:120px}
+.form button{border:none;cursor:pointer;font-family:var(--mono);width:auto}
+.direct{margin-top:32px;font-family:var(--mono);font-size:14px;color:var(--muted);line-height:2}
+.direct a{color:var(--signal);text-decoration:none}
+.direct a:hover{text-decoration:underline}
+
+footer{padding:32px 0;border-top:1px solid var(--line)}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.foot a{text-decoration:none;transition:color .2s}
+.foot a:hover{color:var(--text)}
+
+*:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <div class="logo">ruha42<b>::</b>dev</div>
+    <div class="nav-links">
+      <a href="#works">Проекты</a>
+      <a href="#about">Обо мне</a>
+      <a href="#pricing">Услуги</a>
+      <a href="#contact">Связаться</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-in">
+    <div class="status"><span class="dot"></span>Открыт для проектов и предложений</div>
+    <h1>Разрабатываю десктопные приложения на <em>C++ и Qt</em> — от инженерного ПО до CRM.</h1>
+    <p class="lede">Три года коммерческой разработки. C++17/20, Qt, PostgreSQL, CMake. Плюс плагины для Minecraft-серверов на Java.</p>
+    <div class="btns">
+      <a href="#contact" class="btn btn-a">Обсудить задачу</a>
+      <a href="#works" class="btn btn-b">Посмотреть проекты</a>
+    </div>
+  </div>
+</header>
+
+<section id="works">
+  <div class="wrap">
+    <div class="eyebrow">Проекты</div>
+    <h2>Что я сделал</h2>
+    <p class="sub">Собственные проекты и коммерческие задачи. Почти всё с открытым кодом — ссылки ведут на GitHub.</p>
+    <div class="grid">
+
+      <article class="card">
+        <div class="card-meta"><span>Сейчас · Minecraft</span></div>
+        <h3>Плагины для Minecraft-серверов</h3>
+        <p>Пишу серверные плагины на Java под Bukkit / Spigot / Paper. От небольших механик до систем под конкретный проект.</p>
+        <ul>
+          <li>Кастомные механики и режимы игры</li>
+          <li>Работа с базой, экономика, права</li>
+          <li>Оптимизация под нагрузку онлайна</li>
+          <li>Правки и поддержка после сдачи</li>
+        </ul>
+        <div class="tags"><span class="tag">Java</span><span class="tag">Bukkit</span><span class="tag">Spigot</span><span class="tag">Paper</span><span class="tag">Maven</span></div>
+        <a href="https://black-minecraft.com/threads/java-razrabotchik-pod-bukkit-spigot-paper.15407/" class="card-link">Тема с резюме →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-meta"><span>2026 · Open source</span><span class="star">★ 1</span></div>
+        <h3>YamlEditor</h3>
+        <p>Десктопный редактор YAML-конфигов с деревом ключей и значений. Для тех, кто правит конфиги руками и устал считать отступы.</p>
+        <ul>
+          <li>Редактирование в дереве, фильтр по ключам</li>
+          <li>Поиск и замена с regex</li>
+          <li>Вкладки: файл, несколько файлов или папка целиком</li>
+          <li>Локализация RU / EN, тёмная тема</li>
+        </ul>
+        <div class="tags"><span class="tag">C++17</span><span class="tag">Qt 6</span><span class="tag">CMake</span><span class="tag">yaml-cpp</span></div>
+        <a href="https://github.com/Ruha24/YamlEditor" class="card-link">Открыть на GitHub →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-meta"><span>2026 · Open source</span></div>
+        <h3>Process Launcher</h3>
+        <p>Лаунчер для Windows и macOS: добавил программы один раз — запускаешь кликом, горячей клавишей или целой группой.</p>
+        <ul>
+          <li>Следит за процессами, перезапускает упавшие</li>
+          <li>Профили-вкладки: «Работа», «Игры»</li>
+          <li>Горячие клавиши и автозапуск с системой</li>
+          <li>Собранные установщики под обе платформы</li>
+        </ul>
+        <div class="tags"><span class="tag">C++</span><span class="tag">QML</span><span class="tag">Qt Quick</span><span class="tag">CMake</span></div>
+        <a href="https://github.com/Ruha24/ProcessLauncher" class="card-link">Открыть на GitHub →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-meta"><span>2024 · Коммерческий</span><span class="star">★ 1</span></div>
+        <h3>CRM для гостиницы</h3>
+        <p>Десктопная система управления номерами и бронированиями. Полный CRUD по номерам, клиентам и броням.</p>
+        <ul>
+          <li>Выборка из БД быстрее на 40% — запросы и кеш</li>
+          <li>Главное окно грузится на 35% быстрее</li>
+          <li>Ленивая инициализация виджетов</li>
+        </ul>
+        <div class="tags"><span class="tag">C++</span><span class="tag">Qt Widgets</span><span class="tag">PostgreSQL</span></div>
+        <a href="https://github.com/Ruha24/HotelQt" class="card-link">Открыть на GitHub →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-meta"><span>2025 · Коммерческий</span><span class="star">★ 1</span></div>
+        <h3>MonitorPrice</h3>
+        <p>Клиент-серверная система мониторинга цен. Подписываешься на товар — приходит уведомление, когда цена упала.</p>
+        <ul>
+          <li>Данные с API быстрее на 30% — асинхронные запросы</li>
+          <li>100% доставка уведомлений через Telegram</li>
+          <li>История цен и авторизация пользователей</li>
+        </ul>
+        <div class="tags"><span class="tag">C++</span><span class="tag">Qt</span><span class="tag">PostgreSQL</span><span class="tag">Python</span><span class="tag">Telegram API</span></div>
+        <a href="https://github.com/Ruha24/MonitorPrice" class="card-link">Открыть на GitHub →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-meta"><span>2024 · Учебный</span></div>
+        <h3>ScrabbleGame</h3>
+        <p>Настольный «Эрудит» на десктопе: словарь, подсчёт очков, игровое поле. Проект на C# — для сравнения подходов к UI.</p>
+        <ul>
+          <li>Логика игры и валидация слов</li>
+          <li>Интерфейс на Windows Forms</li>
+        </ul>
+        <div class="tags"><span class="tag">C#</span><span class="tag">Windows Forms</span></div>
+        <a href="https://github.com/Ruha24/ScrabbleGame" class="card-link">Открыть на GitHub →</a>
+      </article>
+
+    </div>
+    <p class="gh-note">Весь код — на <a href="https://github.com/Ruha24">github.com/Ruha24</a></p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow">Обо мне</div>
+    <h2>Привет, я Руслан</h2>
+    <div class="about">
+      <div>
+        <p>Третий год пишу десктопное ПО на C++ и Qt — от инженерных приложений до CRM. Плюс Java-разработка под Minecraft: <strong>плагины для Bukkit / Spigot / Paper.</strong></p>
+        <p>Интересно работать с существующим кодом: разбираться в чужой архитектуре, находить узкие места, ускорять.</p>
+        <p>Свои инструменты выкладываю в открытый доступ — код можно посмотреть до того, как соглашаться работать вместе.</p>
+      </div>
+      <aside class="stack-box">
+        <div class="stack-t">Основное</div>
+        <div class="chips"><span class="chip">C++17/20</span><span class="chip">Qt Widgets</span><span class="chip">Qt Quick / QML</span><span class="chip">STL</span><span class="chip">ООП</span></div>
+        <div class="stack-t">Данные</div>
+        <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">SQL</span><span class="chip">СУБД</span></div>
+        <div class="stack-t">Инструменты</div>
+        <div class="chips"><span class="chip">CMake</span><span class="chip">Git</span><span class="chip">SVN</span><span class="chip">CI/CD</span><span class="chip">MS Visual Studio</span></div>
+        <div class="stack-t">Minecraft</div>
+        <div class="chips"><span class="chip">Java</span><span class="chip">Bukkit</span><span class="chip">Spigot</span><span class="chip">Paper</span><span class="chip">Maven</span></div>
+        <div class="stack-t">Ещё</div>
+        <div class="chips"><span class="chip">C#</span><span class="chip">Windows Forms</span><span class="chip">Python</span><span class="chip">Алгоритмы</span><span class="chip">Рефакторинг</span></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="eyebrow">Услуги</div>
+    <h2>Как со мной работать</h2>
+    <p class="sub">Стоимость и сроки назову после разговора о задаче. Обсуждение бесплатное и ни к чему не обязывает.</p>
+    <div class="prices">
+
+      <div class="price">
+        <h3>Небольшая утилита</h3>
+        <p class="price-desc">Десктопный инструмент под конкретную задачу: обработка файлов, автоматизация, работа с оборудованием.</p>
+        <ul>
+          <li>Интерфейс на Qt</li>
+          <li>Сборка под Windows / Linux</li>
+          <li>Установщик и инструкция</li>
+          <li>Срок: 2–3 недели</li>
+        </ul>
+        <a href="#contact" class="btn btn-b">Обсудить</a>
+      </div>
+
+      <div class="price hi">
+        <h3>Приложение с базой</h3>
+        <p class="price-desc">CRM, учётная система, клиент-серверное решение с реальными пользователями и данными.</p>
+        <ul>
+          <li>Проектирование архитектуры</li>
+          <li>Интерфейс и бэкенд-логика</li>
+          <li>PostgreSQL и интеграции по API</li>
+          <li>Сборка, тесты, релиз</li>
+          <li>Месяц поддержки после сдачи</li>
+        </ul>
+        <a href="#contact" class="btn btn-a">Обсудить</a>
+      </div>
+
+      <div class="price">
+        <h3>Плагин для Minecraft</h3>
+        <p class="price-desc">Серверный плагин на Java под Bukkit / Spigot / Paper — механика, система или доработка.</p>
+        <ul>
+          <li>Кастомные механики под ваш сервер</li>
+          <li>Конфиги и права из коробки</li>
+          <li>Оптимизация под онлайн</li>
+          <li>Правки после сдачи</li>
+          <li>Исходники ваши</li>
+        </ul>
+        <a href="#contact" class="btn btn-b">Обсудить</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="eyebrow">Связаться</div>
+    <h2>Расскажите о задаче</h2>
+    <p class="sub">Отвечу в течение дня. Если задача не моя — скажу честно и, если смогу, посоветую, к кому обратиться.</p>
+
+    <form class="form" id="contactForm">
+      <div class="field">
+        <label for="name">Как вас зовут</label>
+        <input id="name" name="name" type="text" required>
+      </div>
+      <div class="field">
+        <label for="contact">Почта или телеграм</label>
+        <input id="contact" name="contact" type="text" required>
+      </div>
+      <div class="field">
+        <label for="kind">Что за задача</label>
+        <select id="kind" name="kind">
+          <option>Десктопное приложение</option>
+          <option>Приложение с базой данных</option>
+          <option>Плагин для Minecraft</option>
+          <option>Доработка существующего проекта</option>
+          <option>Другое</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="msg">Что нужно сделать</label>
+        <textarea id="msg" name="msg" placeholder="Пара предложений о проекте, сроках и о том, что уже есть." required></textarea>
+      </div>
+      <button type="submit" class="btn btn-a">Отправить заявку</button>
+    </form>
+
+    <p class="direct">
+      Или напрямую:<br>
+      <a href="https://t.me/ruha_42">@ruha_42</a> в телеграме · <a href="mailto:rusikaid50@gmail.com">rusikaid50@gmail.com</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>© 2026 Руслан Иванов</div>
+    <div><a href="https://github.com/Ruha24">GitHub</a> · <a href="https://t.me/ruha_42">Telegram</a></div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const btn = this.querySelector('button');
+  btn.textContent = 'Отправлено ✓';
+  btn.disabled = true;
+});
+</script>
+
+</body>
+</html>
