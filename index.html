@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Руслан Иванов — C++ / Qt разработчик</title>
 <meta name="description" content="C++ разработчик с коммерческим опытом. Десктопные приложения на C++17/20, Qt, PostgreSQL, CMake.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="ru" href="/">
 <link rel="alternate" hreflang="en" href="/en/">
 <link rel="alternate" hreflang="x-default" href="/">
@@ -128,7 +129,8 @@ input,textarea,select{width:100%;background:var(--ink);border:1px solid var(--li
   padding:12px 14px;color:var(--text);font-family:var(--sans);font-size:15px;transition:.2s}
 input:focus,textarea:focus,select:focus{outline:none;border-color:var(--signal);box-shadow:0 0 0 3px var(--signal-dim)}
 textarea{resize:vertical;min-height:120px}
-.form button{border:none;cursor:pointer;font-family:var(--mono);width:auto}
+.form button{border:none;cursor:pointer;font-family:var(--mono);width:auto;min-width:190px;text-align:center;transition:.2s}
+.form button:disabled{opacity:.7;cursor:default}
 .direct{margin-top:32px;font-family:var(--mono);font-size:14px;color:var(--muted);line-height:2}
 .direct a{color:var(--signal);text-decoration:none}
 .direct a:hover{text-decoration:underline}
@@ -347,18 +349,18 @@ footer{padding:32px 0;border-top:1px solid var(--line)}
     <h2>Расскажите о задаче</h2>
     <p class="sub">Отвечу в течение дня. Если задача не моя — скажу честно и, если смогу, посоветую, к кому обратиться.</p>
 
-    <form class="form" id="contactForm">
+    <form class="form" id="contactForm" action="https://formspree.io/f/mgogopkp" method="POST">
       <div class="field">
         <label for="name">Как вас зовут</label>
-        <input id="name" name="name" type="text" required>
+        <input id="name" name="Имя" type="text" required>
       </div>
       <div class="field">
         <label for="contact">Почта или телеграм</label>
-        <input id="contact" name="contact" type="text" required>
+        <input id="contact" name="Контакт" type="text" required>
       </div>
       <div class="field">
         <label for="kind">Что за задача</label>
-        <select id="kind" name="kind">
+        <select id="kind" name="Тип задачи">
           <option>Десктопное приложение</option>
           <option>Приложение с базой данных</option>
           <option>Плагин для Minecraft</option>
@@ -368,7 +370,7 @@ footer{padding:32px 0;border-top:1px solid var(--line)}
       </div>
       <div class="field">
         <label for="msg">Что нужно сделать</label>
-        <textarea id="msg" name="msg" placeholder="Пара предложений о проекте, сроках и о том, что уже есть." required></textarea>
+        <textarea id="msg" name="Сообщение" placeholder="Пара предложений о проекте, сроках и о том, что уже есть." required></textarea>
       </div>
       <button type="submit" class="btn btn-a">Отправить заявку</button>
     </form>
@@ -406,11 +408,28 @@ document.querySelectorAll('.lang a').forEach(function(a){
   });
 });
 
-document.getElementById('contactForm').addEventListener('submit', function(e){
+document.getElementById('contactForm').addEventListener('submit', async function(e){
   e.preventDefault();
-  const btn = this.querySelector('button');
-  btn.textContent = 'Отправлено ✓';
+  const form = this, btn = form.querySelector('button'), original = btn.textContent;
   btn.disabled = true;
+  btn.textContent = 'Отправляю…';
+  try{
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if(res.ok){
+      btn.textContent = 'Отправлено ✓';
+      form.reset();
+    } else {
+      throw new Error('bad response');
+    }
+  } catch(err){
+    btn.textContent = 'Не отправилось — напишите в телеграм';
+    btn.disabled = false;
+    setTimeout(function(){ btn.textContent = original; }, 5000);
+  }
 });
 </script>
 
