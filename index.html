@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Руслан Иванов — C++ / Qt разработчик</title>
-<meta name="description" content="C++ разработчик с коммерческим опытом. Десктопные приложения на C++17/20, Qt, PostgreSQL, CMake.">
+<title>Десктопные программы на заказ — Руслан Иванов</title>
+<meta name="description" content="Разработка десктопных программ на заказ: утилиты и автоматизация, CRM и учётные системы с базой данных, доработка и ускорение готовых проектов. C#, C++ и Qt, Windows и Linux, исходники ваши.">
 <meta name="theme-color" content="#0B0D10">
 
 <!-- Превью ссылки в Telegram, VK, Slack и т.д. -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ruha24.github.io/">
-<meta property="og:title" content="Руслан Иванов — C++ / Qt разработчик">
-<meta property="og:description" content="Десктопные приложения на C++ и Qt: от утилит до CRM. Три года коммерческой разработки.">
+<meta property="og:title" content="Десктопные программы на заказ — от утилиты до CRM">
+<meta property="og:description" content="Автоматизация, учёт, системы с базой данных, доработка готовых программ. Сдаю с установщиком, инструкцией и исходниками.">
 <meta property="og:image" content="https://ruha24.github.io/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -20,6 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://ruha24.github.io/">
 <link rel="alternate" hreflang="ru" href="https://ruha24.github.io/">
 <link rel="alternate" hreflang="en" href="https://ruha24.github.io/en/">
 <link rel="alternate" hreflang="x-default" href="https://ruha24.github.io/">
@@ -39,198 +40,29 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter+Tight:wght@400;500;700;800&display=swap" rel="stylesheet">
-<style>
-:root{
-  color-scheme:dark;
-  --ink:#0B0D10;
-  --panel:#121519;
-  --panel-2:#171B21;
-  --line:#232830;
-  --text:#E6E9EE;
-  --text-2:#B4BAC4;
-  --muted:#868F9D;
-  --signal:#41CD52; /* Qt green */
-  --signal-dim:rgba(65,205,82,.1);
-  --mono:'JetBrains Mono',ui-monospace,monospace;
-  --sans:'Inter Tight',system-ui,sans-serif;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--ink);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-img{max-width:100%;display:block}
-.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
-
-/* ---------- Навигация ---------- */
-nav{position:sticky;top:0;z-index:50;background:rgba(11,13,16,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
-.logo{font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:-.02em;text-decoration:none}
-.logo b{color:var(--signal)}
-.nav-right{display:flex;align-items:center;gap:20px}
-.nav-links{display:flex;gap:26px;font-family:var(--mono);font-size:13px}
-.nav-links a{text-decoration:none;color:var(--muted);transition:color .2s;white-space:nowrap}
-.nav-links a:hover{color:var(--text)}
-.lang{display:flex;gap:2px;font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:6px;padding:2px}
-.lang a{text-decoration:none;color:var(--muted);padding:3px 8px;border-radius:4px;transition:.2s}
-.lang a:hover{color:var(--text)}
-.lang a.on{background:var(--panel-2);color:var(--text);font-weight:700}
-
-/* На мобильном ссылки уходят во вторую строку и прокручиваются по горизонтали */
-@media(max-width:680px){
-  .nav-in{flex-wrap:wrap;height:auto;padding-top:12px}
-  .nav-right{display:contents}
-  .lang{order:1}
-  .nav-links{order:2;width:100%;gap:22px;overflow-x:auto;padding:10px 0 12px;scrollbar-width:none}
-  .nav-links::-webkit-scrollbar{display:none}
-}
-
-/* ---------- Шапка ---------- */
-.hero{padding:96px 0 80px;position:relative;overflow:hidden}
-.hero::before{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(var(--line) 1px,transparent 1px) 0 0/100% 32px,
-             linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/32px 100%;
-  opacity:.3;
-  mask-image:radial-gradient(ellipse 70% 60% at 28% 40%,#000 0%,transparent 75%);
-  pointer-events:none;
-}
-.hero-in{position:relative;display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
-/* Колонка со скриншотом появляется, только если картинка загрузилась */
-.hero-in:has(.hero-shot){grid-template-columns:1.15fr .85fr}
-@media(max-width:880px){.hero-in:has(.hero-shot){grid-template-columns:1fr}}
-.status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--signal);
-  border:1px solid rgba(65,205,82,.3);background:var(--signal-dim);padding:5px 12px;border-radius:100px;margin-bottom:28px}
-.dot{width:6px;height:6px;border-radius:50%;background:var(--signal);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-h1{font-size:clamp(34px,5.6vw,60px);font-weight:800;line-height:1.08;letter-spacing:-.025em;max-width:20ch;margin-bottom:24px}
-h1 em{font-style:normal;color:var(--signal)}
-.lede{font-size:19px;color:var(--text-2);max-width:52ch;margin-bottom:36px}
-.btns{display:flex;gap:12px;flex-wrap:wrap}
-.btn{font-family:var(--mono);font-size:14px;font-weight:500;padding:13px 22px;border-radius:8px;
-  text-decoration:none;border:1px solid var(--line);transition:.2s;display:inline-block}
-.btn-a{background:var(--signal);color:#06210A;border-color:var(--signal);font-weight:700}
-.btn-a:hover{background:#5BDD6B;transform:translateY(-2px)}
-.btn-b{color:var(--text)}
-.btn-b:hover{border-color:var(--muted);background:var(--panel)}
-
-.hero-shot{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel);
-  box-shadow:0 24px 60px -20px rgba(0,0,0,.6)}
-.hero-shot .bar{display:flex;gap:6px;padding:10px 12px;border-bottom:1px solid var(--line)}
-.hero-shot .bar i{width:10px;height:10px;border-radius:50%;background:var(--line)}
-
-/* ---------- Секции ---------- */
-section{padding:88px 0}
-h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.02em;margin-bottom:14px}
-.sub{color:var(--muted);max-width:58ch;margin-bottom:44px}
-
-/* ---------- Карточки проектов ---------- */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:26px;
-  transition:.25s;position:relative;overflow:hidden;display:flex;flex-direction:column}
-.card::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--signal);
-  transform:scaleX(0);transform-origin:left;transition:transform .3s}
-.card:hover{border-color:#313843;transform:translateY(-4px)}
-.card:hover::after{transform:scaleX(1)}
-.shot{margin:-26px -26px 22px;aspect-ratio:16/10;border-bottom:1px solid var(--line);background:var(--panel-2);overflow:hidden}
-.shot img{width:100%;height:100%;object-fit:cover;object-position:top left}
-.card-meta{font-family:var(--mono);font-size:12px;color:var(--muted)}
-.card h3{font-size:21px;font-weight:700;letter-spacing:-.015em;margin:8px 0 10px}
-.card p{font-size:15px;color:var(--muted);margin-bottom:18px}
-.card ul{list-style:none;margin:0 0 18px;font-size:14px;color:var(--text-2)}
-.card li{padding-left:18px;position:relative;margin-bottom:6px}
-.card li::before{content:"›";position:absolute;left:0;color:var(--muted);font-family:var(--mono);font-weight:700}
-.card li strong{color:var(--text);font-weight:600}
-.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}
-.tag{font-family:var(--mono);font-size:12px;color:var(--muted);border:1px solid var(--line);padding:3px 9px;border-radius:5px}
-.card-link{display:inline-block;margin-top:18px;font-family:var(--mono);font-size:13px;color:var(--signal);text-decoration:none}
-/* Вся карточка кликабельна: ссылка растягивается на неё целиком */
-.card-link::before{content:"";position:absolute;inset:0;z-index:1}
-.card:hover .card-link{text-decoration:underline}
-
-/* Minecraft — отдельной полосой под основными проектами */
-.side{margin-top:18px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:26px;
-  display:grid;grid-template-columns:1fr auto;gap:12px 32px;align-items:center;position:relative;transition:.25s}
-.side:hover{border-color:#313843}
-.side h3{font-size:19px;font-weight:700;margin-bottom:6px}
-.side p{font-size:15px;color:var(--muted);max-width:60ch;margin-bottom:12px}
-.side .card-link{margin-top:0}
-.side .card-link::before{border-radius:12px}
-@media(max-width:680px){.side{grid-template-columns:1fr}}
-
-.gh-note{margin-top:32px;font-family:var(--mono);font-size:13px;color:var(--muted)}
-.gh-note a{color:var(--signal);text-decoration:none}
-.gh-note a:hover{text-decoration:underline}
-
-/* ---------- Обо мне ---------- */
-.about{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:start}
-@media(max-width:880px){.about{grid-template-columns:1fr;gap:36px}}
-.about p{margin-bottom:16px;color:var(--text-2);font-size:17px;max-width:60ch}
-.about p strong{color:var(--text);font-weight:500}
-.stack-box{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px}
-.stack-t{font-family:var(--mono);font-size:12px;color:var(--muted);margin-bottom:12px}
-.stack-t:not(:first-child){margin-top:22px}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{font-family:var(--mono);font-size:12px;background:var(--panel-2);border:1px solid var(--line);padding:5px 10px;border-radius:6px}
-
-/* ---------- Услуги ---------- */
-.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-@media(max-width:880px){.prices{grid-template-columns:1fr}}
-.price{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:30px;display:flex;flex-direction:column}
-.price h3{font-size:19px;font-weight:700;margin-bottom:6px}
-.price-desc{font-size:14px;color:var(--muted);margin-bottom:20px;min-height:44px}
-.price ul{list-style:none;margin:4px 0 22px;flex:1}
-.price li{font-size:14px;color:var(--text-2);padding-left:20px;position:relative;margin-bottom:9px}
-.price li::before{content:"–";position:absolute;left:0;color:var(--muted);font-family:var(--mono)}
-.price .btn{text-align:center}
-
-/* ---------- Контакты ---------- */
-.contact{background:var(--panel);border-block:1px solid var(--line)}
-.form{max-width:560px}
-.field{margin-bottom:18px}
-label{display:block;font-family:var(--mono);font-size:12px;color:var(--muted);margin-bottom:7px}
-input,textarea,select{width:100%;background:var(--ink);border:1px solid var(--line);border-radius:8px;
-  padding:12px 14px;color:var(--text);font-family:var(--sans);font-size:15px;transition:.2s}
-select{appearance:none;cursor:pointer;padding-right:40px;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23868F9D' stroke-width='1.6'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 14px center}
-input:focus,textarea:focus,select:focus{outline:none;border-color:var(--signal);box-shadow:0 0 0 3px var(--signal-dim)}
-textarea{resize:vertical;min-height:120px}
-.form button{border:none;cursor:pointer;font-family:var(--mono);min-width:190px;text-align:center;transition:.2s}
-.form button:disabled{opacity:.7;cursor:default}
-.form-status{margin-top:14px;font-family:var(--mono);font-size:13px;min-height:1.6em}
-.form-status.ok{color:var(--signal)}
-.form-status.err{color:#FF7A7A}
-.form-status a{color:inherit}
-.direct{margin-top:24px;font-family:var(--mono);font-size:14px;color:var(--muted);line-height:2}
-.direct a{color:var(--signal);text-decoration:none}
-.direct a:hover{text-decoration:underline}
-
-footer{padding:32px 0;border-top:1px solid var(--line)}
-.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:12px;color:var(--muted)}
-.foot a{text-decoration:none;transition:color .2s}
-.foot a:hover{color:var(--text)}
-
-*:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/site.js" defer></script>
 </head>
 <body>
 
 <nav>
   <div class="wrap nav-in">
-    <a href="#" class="logo">ruha42<b>::</b>dev</a>
+    <a href="/" class="logo"><img src="/favicon.svg" width="24" height="24" alt="">ruha42<b>::</b>dev</a>
     <div class="nav-right">
       <div class="nav-links">
-        <a href="#works">Проекты</a>
-        <a href="#about">Обо мне</a>
-        <a href="#pricing">Услуги</a>
-        <a href="#contact">Связаться</a>
+        <a href="#services">Услуги</a>
+        <a href="#process">Как работаю</a>
+        <a href="#cases">Кейсы</a>
+        <a href="#faq">Вопросы</a>
+        <span class="sep" aria-hidden="true"></span>
+        <a href="/cv/">Резюме</a>
       </div>
       <div class="lang">
         <a href="/" class="on" data-lang="ru" aria-current="page">RU</a>
         <a href="/en/" data-lang="en">EN</a>
       </div>
+      <a href="#contact" class="nav-cta">Оставить заявку</a>
     </div>
   </div>
 </nav>
@@ -238,254 +70,273 @@ footer{padding:32px 0;border-top:1px solid var(--line)}
 <header class="hero">
   <div class="wrap hero-in">
     <div>
-      <div class="status"><span class="dot"></span>Открыт для заказов и предложений о работе</div>
-      <h1>Разрабатываю десктопные приложения на <em>C++ и Qt</em> — от утилит до CRM.</h1>
-      <p class="lede">Три года коммерческой разработки: C++17/20, Qt, PostgreSQL, CMake. Люблю разбираться в чужом коде и делать его быстрее.</p>
+      <div class="status"><span class="dot"></span>Принимаю новые заказы</div>
+      <h1>Десктопные программы на заказ — <em>от утилиты до CRM</em></h1>
+      <p class="lede">Автоматизирую рутину, сделаю учёт или систему с базой данных, доработаю и ускорю программу, которая у вас уже есть.</p>
       <div class="btns">
         <a href="#contact" class="btn btn-a">Обсудить задачу</a>
-        <a href="#works" class="btn btn-b">Посмотреть проекты</a>
+        <a href="#cases" class="btn btn-b">Посмотреть кейсы</a>
       </div>
     </div>
-    <!-- Положите скриншот в /img/hero.png. Пока файла нет, блок сам исчезнет -->
-    <figure class="hero-shot">
-      <div class="bar" aria-hidden="true"><i></i><i></i><i></i></div>
-      <img src="/img/hero.png" alt="YamlEditor: дерево ключей YAML-конфига в тёмной теме" width="1280" height="800"
-           onerror="this.closest('.hero-shot').remove()">
-    </figure>
+    <aside class="deliver" aria-label="Что вы получите">
+      <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>что вы получите</span></div>
+      <ul>
+        <li><div><b>Готовую программу</b><small>Сборка под вашу систему, работает без лишней настройки</small></div></li>
+        <li><div><b>Установщик и инструкцию</b><small>Чтобы поставить и начать пользоваться мог любой сотрудник</small></div></li>
+        <li><div><b>Исходный код</b><small>Он остаётся у вас — программу сможет развивать кто угодно</small></div></li>
+        <li><div><b>Поддержку после сдачи</b><small>Исправлю ошибки, если они найдутся в работе</small></div></li>
+      </ul>
+    </aside>
   </div>
 </header>
 
-<section id="works">
+<section id="services" class="alt">
   <div class="wrap">
-    <h2>Проекты</h2>
-    <p class="sub">Собственные инструменты и коммерческие задачи. Почти всё с открытым кодом — карточка ведёт на GitHub.</p>
+    <div class="kicker">// услуги</div>
+    <h2>С чем могу помочь</h2>
+    <p class="sub">Если ваша задача не попадает ни в один пункт — всё равно напишите. Скажу честно, возьмусь или нет.</p>
+    <div class="svc">
 
-    <div class="grid">
-
-      <article class="card">
-        <div class="shot"><img src="/img/yamleditor.png" alt="" loading="lazy" onerror="this.parentElement.remove()"></div>
-        <div class="card-meta">2026, open source</div>
-        <h3>YamlEditor</h3>
-        <p>Десктопный редактор YAML-конфигов с деревом ключей и значений. Для тех, кто правит конфиги руками и устал считать отступы.</p>
+      <article class="svc-card">
+        <div class="svc-n">01</div>
+        <h3>Утилита и автоматизация</h3>
+        <p>Программа под одну конкретную задачу: обработка файлов, отчёты, работа с оборудованием, всё, что сейчас делается руками.</p>
         <ul>
-          <li>Редактирование в дереве, фильтр по ключам</li>
-          <li>Поиск и замена с regex</li>
-          <li>Вкладки: файл, несколько файлов или папка целиком</li>
-          <li>Локализация RU / EN, тёмная тема</li>
+          <li>Понятный интерфейс на C# или Qt</li>
+          <li>Сборка под Windows / Linux</li>
+          <li>Установщик и инструкция</li>
+          <li>Обычно 2–3 недели</li>
         </ul>
-        <div class="tags"><span class="tag">C++17</span><span class="tag">Qt 6</span><span class="tag">CMake</span><span class="tag">yaml-cpp</span></div>
-        <a href="https://github.com/Ruha24/YamlEditor" class="card-link">Код на GitHub</a>
+        <a href="#contact" class="more" data-kind="Утилита / автоматизация">Обсудить утилиту →</a>
       </article>
 
-      <article class="card">
-        <div class="shot"><img src="/img/processlauncher.png" alt="" loading="lazy" onerror="this.parentElement.remove()"></div>
-        <div class="card-meta">2026, open source</div>
-        <h3>Process Launcher</h3>
-        <p>Лаунчер для Windows и macOS: добавил программы один раз — запускаешь кликом, горячей клавишей или целой группой.</p>
+      <article class="svc-card">
+        <div class="svc-n">02</div>
+        <h3>Приложение с базой данных</h3>
+        <p>CRM, учётная или клиент-серверная система, в которой работают реальные пользователи с реальными данными.</p>
         <ul>
-          <li>Следит за процессами, перезапускает упавшие</li>
-          <li>Профили-вкладки: «Работа», «Игры»</li>
-          <li>Горячие клавиши и автозапуск с системой</li>
-          <li>Собранные установщики под обе платформы</li>
+          <li>Проектирование под ваши процессы</li>
+          <li>PostgreSQL и интеграции по API</li>
+          <li>Тесты, сборка и запуск</li>
+          <li>Месяц поддержки после сдачи</li>
         </ul>
-        <div class="tags"><span class="tag">C++</span><span class="tag">QML</span><span class="tag">Qt Quick</span><span class="tag">CMake</span></div>
-        <a href="https://github.com/Ruha24/ProcessLauncher" class="card-link">Код на GitHub</a>
+        <a href="#contact" class="more" data-kind="Приложение с базой данных">Обсудить приложение →</a>
       </article>
 
-      <article class="card">
-        <div class="shot"><img src="/img/monitorprice.png" alt="" loading="lazy" onerror="this.parentElement.remove()"></div>
-        <div class="card-meta">2025, коммерческий проект</div>
-        <h3>MonitorPrice</h3>
-        <p>Клиент-серверная система мониторинга цен. Подписываешься на товар — приходит уведомление, когда цена упала.</p>
+      <article class="svc-card">
+        <div class="svc-n">03</div>
+        <h3>Доработка и ускорение</h3>
+        <p>Программа уже есть, но тормозит, падает или в неё нужно добавить новое. Разберусь в чужом коде и доведу до ума.</p>
         <ul>
-          <li>Данные с API <strong>быстрее на 30%</strong> за счёт асинхронных запросов</li>
-          <li>Уведомления о снижении цены в Telegram</li>
-          <li>История цен и авторизация пользователей</li>
+          <li>Поиск узких мест и оптимизация</li>
+          <li>Исправление ошибок и падений</li>
+          <li>Новые функции без переписывания с нуля</li>
+          <li>Пример: выборка из БД в CRM ускорена на 40%</li>
         </ul>
-        <div class="tags"><span class="tag">C++</span><span class="tag">Qt</span><span class="tag">PostgreSQL</span><span class="tag">Python</span><span class="tag">Telegram API</span></div>
-        <a href="https://github.com/Ruha24/MonitorPrice" class="card-link">Код на GitHub</a>
+        <a href="#contact" class="more" data-kind="Доработка существующего проекта">Обсудить доработку →</a>
       </article>
 
-      <article class="card">
-        <div class="shot"><img src="/img/hotel.png" alt="" loading="lazy" onerror="this.parentElement.remove()"></div>
-        <div class="card-meta">2024, коммерческий проект</div>
-        <h3>CRM для гостиницы</h3>
-        <p>Десктопная система управления номерами и бронированиями. Полный CRUD по номерам, клиентам и броням.</p>
+      <article class="svc-card mc">
+        <div class="svc-n">04</div>
+        <h3>Плагины для Minecraft</h3>
+        <p>Серверные плагины на Java под Bukkit / Spigot / Paper: механики, экономика, права, работа с базой.</p>
         <ul>
-          <li>Выборка из БД <strong>быстрее на 40%</strong>: оптимизация запросов и кеш</li>
-          <li>Главное окно грузится <strong>на 35% быстрее</strong></li>
-          <li>Ленивая инициализация виджетов</li>
+          <li>Механики под ваш сервер</li>
+          <li>Конфиги и права из коробки</li>
+          <li>Оптимизация под онлайн</li>
+          <li>Правки после сдачи</li>
         </ul>
-        <div class="tags"><span class="tag">C++</span><span class="tag">Qt Widgets</span><span class="tag">PostgreSQL</span></div>
-        <a href="https://github.com/Ruha24/HotelQt" class="card-link">Код на GitHub</a>
+        <a href="/minecraft/" class="more">Подробнее о плагинах →</a>
       </article>
 
     </div>
+  </div>
+</section>
 
-    <article class="side">
-      <div>
-        <h3>Также: плагины для Minecraft-серверов</h3>
-        <p>Пишу серверные плагины на Java под Bukkit / Spigot / Paper — от небольших механик до систем под конкретный проект: экономика, права, работа с базой, оптимизация под онлайн.</p>
-        <div class="tags"><span class="tag">Java</span><span class="tag">Bukkit</span><span class="tag">Spigot</span><span class="tag">Paper</span><span class="tag">Maven</span></div>
-      </div>
-      <a href="https://black-minecraft.com/threads/java-razrabotchik-pod-bukkit-spigot-paper.15407/" class="card-link">Тема с резюме</a>
-    </article>
+<section id="process">
+  <div class="wrap">
+    <div class="kicker">// процесс</div>
+    <h2>Как проходит работа</h2>
+    <p class="sub">Без сюрпризов: вы знаете, что происходит с проектом, на каждом шаге.</p>
+    <ol class="steps">
+      <li><h3>Заявка</h3><p>Описываете задачу в форме или в телеграме. Отвечу в течение дня.</p></li>
+      <li><h3>Обсуждение</h3><p>Уточняю детали, предлагаю решение, согласуем объём и сроки.</p></li>
+      <li><h3>Разработка</h3><p>Делаю по этапам и показываю промежуточные версии.</p></li>
+      <li><h3>Сдача</h3><p>Передаю программу, установщик, инструкцию и исходники.</p></li>
+      <li><h3>Поддержка</h3><p>Помогаю с запуском и исправляю ошибки, если найдутся.</p></li>
+    </ol>
+  </div>
+</section>
 
-    <p class="gh-note">Остальное, включая учебные проекты, — на <a href="https://github.com/Ruha24">github.com/Ruha24</a></p>
+<section id="cases" class="alt">
+  <div class="wrap">
+    <div class="kicker">// кейсы</div>
+    <h2>Что уже сделано</h2>
+
+    <div class="cases">
+      <article class="case">
+        <div class="case-body">
+          <div class="case-meta">2024 · гостиничный бизнес</div>
+          <h3>CRM для гостиницы</h3>
+          <dl>
+            <div><dt>Задача</dt><dd>Десктопная система для управления номерами, клиентами и бронированиями.</dd></div>
+            <div><dt>Что сделано</dt><dd>Полный цикл работы с номерами, клиентами и бронями. Оптимизировал запросы к базе, добавил кеш и ленивую загрузку интерфейса.</dd></div>
+          </dl>
+        </div>
+        <div class="case-res">
+          <div class="metric"><b>40%</b><span>быстрее выборка из базы</span></div>
+          <div class="metric"><b>35%</b><span>быстрее грузится главное окно</span></div>
+          <div class="tags"><span class="tag">C++</span><span class="tag">Qt Widgets</span><span class="tag">PostgreSQL</span></div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-body">
+          <div class="case-meta">2025 · e-commerce</div>
+          <h3>MonitorPrice — мониторинг цен</h3>
+          <dl>
+            <div><dt>Задача</dt><dd>Клиент-серверная система: пользователь подписывается на товар и получает уведомление, когда цена упала.</dd></div>
+            <div><dt>Что сделано</dt><dd>Клиент и сервер, история цен, авторизация пользователей, уведомления о снижении цены в Telegram. Перевёл запросы к API на асинхронные.</dd></div>
+          </dl>
+        </div>
+        <div class="case-res">
+          <div class="metric"><b>30%</b><span>быстрее получение данных с API</span></div>
+          <div class="metric"><b>Telegram</b><span>уведомления приходят сразу в мессенджер</span></div>
+          <div class="tags"><span class="tag">C++</span><span class="tag">Qt</span><span class="tag">PostgreSQL</span><span class="tag">Python</span></div>
+        </div>
+      </article>
+    </div>
+
+    <h3 class="tools-h">Мои программы</h3>
+    <p class="tools-sub">Инструменты, которые я сделал для себя и выложил в открытый доступ: можно посмотреть, как я пишу, до начала работы.</p>
+    <div class="grid">
+      <article class="card">
+        <div class="shot"><img src="/img/yamleditor.png" alt="" loading="lazy" onerror="this.parentElement.remove()"></div>
+        <div class="card-meta">2026 · open source</div>
+        <h3>YamlEditor</h3>
+        <p>Редактор YAML-конфигов с деревом ключей, поиском и заменой по regex, вкладками и тёмной темой.</p>
+        <div class="tags"><span class="tag">C++17</span><span class="tag">Qt 6</span></div>
+        <a href="https://github.com/Ruha24/YamlEditor" class="card-link">Смотреть на GitHub</a>
+      </article>
+      <article class="card">
+        <div class="shot"><img src="/img/processlauncher.png" alt="" loading="lazy" onerror="this.parentElement.remove()"></div>
+        <div class="card-meta">2026 · open source</div>
+        <h3>Process Launcher</h3>
+        <p>Лаунчер для Windows и macOS: запуск программ кликом, горячей клавишей или группой, перезапуск упавших процессов.</p>
+        <div class="tags"><span class="tag">C++</span><span class="tag">QML</span></div>
+        <a href="https://github.com/Ruha24/ProcessLauncher" class="card-link">Смотреть на GitHub</a>
+      </article>
+    </div>
   </div>
 </section>
 
 <section id="about">
+  <div class="wrap who">
+    <div>
+      <div class="kicker">// кто делает</div>
+      <h2>Привет, я Руслан</h2>
+      <p>Три года пишу десктопные программы на C#, C++ и Qt — от небольших утилит до CRM. Работаю один, поэтому вы общаетесь напрямую с тем, кто пишет код, без менеджеров и испорченного телефона.</p>
+      <p>Больше всего люблю задачи, где нужно <strong>разобраться в чужой системе и сделать её быстрее.</strong></p>
+    </div>
+    <aside class="stack-box">
+      <div class="stack-t">Пишу на</div>
+      <div class="chips"><span class="chip">C#</span><span class="chip">C++17/20</span><span class="chip">Qt Widgets</span><span class="chip">Qt Quick / QML</span><span class="chip">Java</span><span class="chip">Python</span></div>
+      <div class="stack-t">Базы данных</div>
+      <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">SQL</span></div>
+      <div class="stack-t">Подробнее</div>
+      <div class="chips"><a class="chip" href="/cv/">Резюме</a><a class="chip" href="https://github.com/Ruha24">GitHub</a></div>
+    </aside>
+  </div>
+</section>
+
+<section id="faq" class="alt">
   <div class="wrap">
-    <h2>Привет, я Руслан</h2>
-    <div class="about">
-      <div>
-        <p>Три года пишу десктопное ПО на C++ и Qt — от небольших утилит до CRM. Плюс Java-разработка под Minecraft: <strong>плагины для Bukkit / Spigot / Paper.</strong></p>
-        <p>Интересно работать с существующим кодом: разбираться в чужой архитектуре, находить узкие места, ускорять.</p>
-        <p>Свои инструменты выкладываю в открытый доступ — код можно посмотреть до того, как соглашаться работать вместе.</p>
-      </div>
-      <aside class="stack-box">
-        <div class="stack-t">Основное</div>
-        <div class="chips"><span class="chip">C++17/20</span><span class="chip">Qt Widgets</span><span class="chip">Qt Quick / QML</span></div>
-        <div class="stack-t">Данные</div>
-        <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">SQL</span></div>
-        <div class="stack-t">Инструменты</div>
-        <div class="chips"><span class="chip">CMake</span><span class="chip">Git</span><span class="chip">SVN</span><span class="chip">MS Visual Studio</span></div>
-        <div class="stack-t">Minecraft</div>
-        <div class="chips"><span class="chip">Java</span><span class="chip">Bukkit</span><span class="chip">Spigot</span><span class="chip">Paper</span><span class="chip">Maven</span></div>
-        <div class="stack-t">Ещё</div>
-        <div class="chips"><span class="chip">C#</span><span class="chip">Windows Forms</span><span class="chip">Python</span></div>
-      </aside>
+    <div class="kicker">// вопросы</div>
+    <h2>Частые вопросы</h2>
+    <p class="sub">Не нашли ответ — спросите в телеграме <a href="https://t.me/ruha_42" class="more">@ruha_42</a></p>
+    <div class="faq">
+      <details>
+        <summary>Что нужно, чтобы начать?</summary>
+        <p>Достаточно пары предложений: что должна делать программа, кто ей будет пользоваться и к какому сроку она нужна. Готового технического задания не требуется — детали уточним в разговоре.</p>
+      </details>
+      <details>
+        <summary>Кому принадлежит код?</summary>
+        <p>Вам. Вместе с готовой программой передаю исходники — дальше её сможет развивать любой разработчик, без привязки ко мне.</p>
+      </details>
+      <details>
+        <summary>Можете доработать программу, которую писал кто-то другой?</summary>
+        <p>Да, это одна из моих любимых задач. Сначала разберусь в коде и расскажу, что в нём происходит и что можно улучшить, а потом уже возьмусь за изменения.</p>
+      </details>
+      <details>
+        <summary>Под какие системы делаете программы?</summary>
+        <p>Windows и Linux. Сборку под macOS тоже можно обсудить — например, Process Launcher работает на Windows и macOS.</p>
+      </details>
+      <details>
+        <summary>Что, если после сдачи найдётся ошибка?</summary>
+        <p>Исправлю. Для приложений с базой данных первый месяц после сдачи поддержка входит в работу.</p>
+      </details>
     </div>
   </div>
 </section>
 
-<section id="pricing">
-  <div class="wrap">
-    <h2>Услуги</h2>
-    <p class="sub">Стоимость и сроки назову после разговора о задаче. Обсуждение бесплатное и ни к чему не обязывает. Исходники в любом случае остаются у вас.</p>
-    <div class="prices">
-      <div class="price">
-        <h3>Небольшая утилита</h3>
-        <p class="price-desc">Десктопный инструмент под конкретную задачу: обработка файлов, автоматизация, работа с оборудованием.</p>
-        <ul>
-          <li>Интерфейс на Qt</li>
-          <li>Сборка под Windows / Linux</li>
-          <li>Установщик и инструкция</li>
-          <li>Исходники ваши</li>
-          <li>Обычно 2–3 недели</li>
-        </ul>
-        <a href="#contact" class="btn btn-b">Обсудить утилиту</a>
-      </div>
-      <div class="price">
-        <h3>Приложение с базой</h3>
-        <p class="price-desc">CRM, учётная система, клиент-серверное решение с реальными пользователями и данными.</p>
-        <ul>
-          <li>Проектирование архитектуры</li>
-          <li>Интерфейс и бэкенд-логика</li>
-          <li>PostgreSQL и интеграции по API</li>
-          <li>Сборка, тесты, релиз</li>
-          <li>Месяц поддержки после сдачи</li>
-          <li>Исходники ваши</li>
-        </ul>
-        <a href="#contact" class="btn btn-b">Обсудить приложение</a>
-      </div>
-      <div class="price">
-        <h3>Плагин для Minecraft</h3>
-        <p class="price-desc">Серверный плагин на Java под Bukkit / Spigot / Paper — механика, система или доработка.</p>
-        <ul>
-          <li>Кастомные механики под ваш сервер</li>
-          <li>Конфиги и права из коробки</li>
-          <li>Оптимизация под онлайн</li>
-          <li>Правки после сдачи</li>
-          <li>Исходники ваши</li>
-        </ul>
-        <a href="#contact" class="btn btn-b">Обсудить плагин</a>
-      </div>
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="kicker">// заявка</div>
+      <h2>Расскажите о задаче</h2>
+      <p class="direct">
+        Или напишите напрямую:<br>
+        <a href="https://t.me/ruha_42">@ruha_42</a> в телеграме<br>
+        <a href="mailto:rusikaid50@gmail.com">rusikaid50@gmail.com</a>
+      </p>
     </div>
-  </div>
-</section>
 
-<section id="contact" class="contact">
-  <div class="wrap">
-    <h2>Расскажите о задаче</h2>
-    <p class="sub">Отвечу в течение дня. Если задача не моя — скажу честно и, если смогу, посоветую, к кому обратиться.</p>
-
-    <form class="form" id="contactForm" action="https://formspree.io/f/mgogopkp" method="POST">
-      <div class="field">
-        <label for="name">Как вас зовут</label>
-        <input id="name" name="Имя" type="text" autocomplete="name" required>
-      </div>
-      <div class="field">
-        <label for="contact-field">Почта или телеграм</label>
-        <input id="contact-field" name="Контакт" type="text" required>
+    <form class="form" id="contactForm" action="https://formspree.io/f/mgogopkp" method="POST"
+          data-sending="Отправляю…" data-sent="Заявка отправлена"
+          data-ok="Заявка отправлена. Отвечу в течение дня."
+          data-err='Заявка не отправилась. Попробуйте ещё раз или напишите в <a href="https://t.me/ruha_42">телеграм</a>.'>
+      <input type="hidden" name="Страница" value="Главная (RU)">
+      <div class="field-row">
+        <div class="field">
+          <label for="name">Как вас зовут</label>
+          <input id="name" name="Имя" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="contact-field">Почта или телеграм</label>
+          <input id="contact-field" name="Контакт" type="text" required>
+        </div>
       </div>
       <div class="field">
         <label for="kind">Что за задача</label>
         <select id="kind" name="Тип задачи">
-          <option>Десктопное приложение</option>
+          <option>Утилита / автоматизация</option>
           <option>Приложение с базой данных</option>
-          <option>Плагин для Minecraft</option>
           <option>Доработка существующего проекта</option>
+          <option>Плагин для Minecraft</option>
           <option>Другое</option>
         </select>
       </div>
       <div class="field">
         <label for="msg">Что нужно сделать</label>
-        <textarea id="msg" name="Сообщение" placeholder="Пара предложений о проекте, сроках и о том, что уже есть." required></textarea>
+        <textarea id="msg" name="Сообщение" placeholder="Пара предложений о задаче, сроках и о том, что уже есть." required></textarea>
       </div>
       <button type="submit" class="btn btn-a">Отправить заявку</button>
       <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
     </form>
-
-    <p class="direct">
-      Или напрямую:<br>
-      <a href="https://t.me/ruha_42">@ruha_42</a> в телеграме · <a href="mailto:rusikaid50@gmail.com">rusikaid50@gmail.com</a>
-    </p>
   </div>
 </section>
 
 <footer>
   <div class="wrap foot">
-    <div>© 2026 Руслан Иванов</div>
-    <div><a href="https://github.com/Ruha24">GitHub</a> · <a href="https://t.me/ruha_42">Telegram</a></div>
+    <a href="/" class="logo"><img src="/favicon.svg" width="24" height="24" alt="">ruha42<b>::</b>dev</a>
+    <div class="foot-links">
+      <a href="/minecraft/">Плагины Minecraft</a>
+      <a href="/cv/">Резюме для работодателей</a>
+      <a href="https://github.com/Ruha24">GitHub</a>
+      <a href="https://t.me/ruha_42">Telegram</a>
+    </div>
   </div>
 </footer>
 
-<script>
-// Запоминаем явный выбор языка
-document.querySelectorAll('.lang a').forEach(function(a){
-  a.addEventListener('click', function(){
-    try{ localStorage.setItem('lang', this.dataset.lang); }catch(e){}
-  });
-});
-
-document.getElementById('contactForm').addEventListener('submit', async function(e){
-  e.preventDefault();
-  const form = this, btn = form.querySelector('button'), status = document.getElementById('formStatus');
-  const original = btn.textContent;
-  btn.disabled = true;
-  btn.textContent = 'Отправляю…';
-  status.className = 'form-status';
-  status.textContent = '';
-  try{
-    const res = await fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    });
-    if(!res.ok) throw new Error('bad response');
-    form.reset();
-    btn.textContent = 'Заявка отправлена';
-    status.className = 'form-status ok';
-    status.textContent = 'Заявка отправлена. Отвечу в течение дня.';
-  } catch(err){
-    btn.disabled = false;
-    btn.textContent = original;
-    status.className = 'form-status err';
-    status.innerHTML = 'Заявка не отправилась. Попробуйте ещё раз или напишите в <a href="https://t.me/ruha_42">телеграм</a>.';
-  }
-});
-</script>
 </body>
 </html>

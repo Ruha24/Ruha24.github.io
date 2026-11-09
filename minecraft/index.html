@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Плагины для Minecraft на заказ — Bukkit, Spigot, Paper</title>
+<meta name="description" content="Разработка серверных плагинов для Minecraft на Java под Bukkit / Spigot / Paper: механики, экономика, права, работа с базой данных, оптимизация под онлайн. Исходники ваши.">
+<meta name="theme-color" content="#0B0D10">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ruha24.github.io/minecraft/">
+<meta property="og:title" content="Плагины для Minecraft-серверов на заказ">
+<meta property="og:description" content="Java-плагины под Bukkit / Spigot / Paper: механики, экономика, права, работа с базой, оптимизация под онлайн.">
+<meta property="og:image" content="https://ruha24.github.io/og-minecraft.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://ruha24.github.io/minecraft/">
+<link rel="alternate" hreflang="ru" href="https://ruha24.github.io/minecraft/">
+<link rel="alternate" hreflang="en" href="https://ruha24.github.io/en/minecraft/">
+<link rel="alternate" hreflang="x-default" href="https://ruha24.github.io/minecraft/">
+
+<script>
+(function(){
+  try{
+    if(localStorage.getItem('lang')) return;
+    var ruReaders = ['ru','uk','be','kk'];
+    var langs = navigator.languages || [navigator.language || ''];
+    var readsRu = langs.some(function(l){ return ruReaders.indexOf((l||'').slice(0,2).toLowerCase()) !== -1; });
+    if(!readsRu) location.replace('/en/minecraft/');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/site.js" defer></script>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <a href="/" class="logo"><img src="/favicon.svg" width="24" height="24" alt="">ruha42<b>::</b>dev</a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#services">Что делаю</a>
+        <a href="#process">Как работаю</a>
+        <a href="#faq">Вопросы</a>
+        <span class="sep" aria-hidden="true"></span>
+        <a href="/">Десктопные программы</a>
+      </div>
+      <div class="lang">
+        <a href="/minecraft/" class="on" data-lang="ru" aria-current="page">RU</a>
+        <a href="/en/minecraft/" data-lang="en">EN</a>
+      </div>
+      <a href="#contact" class="nav-cta">Заказать плагин</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <div class="status"><span class="dot"></span>Принимаю заказы на плагины</div>
+      <h1>Плагины для Minecraft-сервера — <em>под ваш проект</em></h1>
+      <p class="lede">Пишу серверные плагины на Java под Bukkit / Spigot / Paper: от небольшой механики до экономики, прав и работы с базой данных.</p>
+      <div class="btns">
+        <a href="#contact" class="btn btn-a">Обсудить плагин</a>
+        <a href="https://black-minecraft.com/threads/java-razrabotchik-pod-bukkit-spigot-paper.15407/" class="btn btn-b">Тема на black-minecraft</a>
+      </div>
+    </div>
+    <aside class="deliver" aria-label="Что вы получите">
+      <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>что вы получите</span></div>
+      <ul>
+        <li><div><b>Готовый .jar</b><small>Кладёте в папку plugins и перезапускаете сервер</small></div></li>
+        <li><div><b>Конфиги и права</b><small>Настройки и permissions из коробки, без правки кода</small></div></li>
+        <li><div><b>Исходный код</b><small>Плагин остаётся вашим, его можно дорабатывать дальше</small></div></li>
+        <li><div><b>Правки после сдачи</b><small>Если что-то работает не так, как договаривались</small></div></li>
+      </ul>
+    </aside>
+  </div>
+</header>
+
+<section id="services" class="alt">
+  <div class="wrap">
+    <div class="kicker">// что делаю</div>
+    <h2>Какие плагины пишу</h2>
+    <p class="sub">Если вашей задачи нет в списке — напишите, обсудим.</p>
+    <div class="svc">
+      <article class="svc-card">
+        <div class="svc-n">01</div>
+        <h3>Механики и мини-игры</h3>
+        <p>Кастомные предметы, ивенты, команды, игровые режимы — то, что делает ваш сервер непохожим на другие.</p>
+        <a href="#contact" class="more" data-kind="Механика / мини-игра">Обсудить механику →</a>
+      </article>
+      <article class="svc-card">
+        <div class="svc-n">02</div>
+        <h3>Системы для сервера</h3>
+        <p>Экономика, права, кланы, статистика игроков — с хранением данных в базе.</p>
+        <a href="#contact" class="more" data-kind="Система (экономика, права, база)">Обсудить систему →</a>
+      </article>
+      <article class="svc-card">
+        <div class="svc-n">03</div>
+        <h3>Оптимизация под онлайн</h3>
+        <p>Сервер лагает при наплыве игроков? Найду, какой код тормозит, и ускорю его.</p>
+        <a href="#contact" class="more" data-kind="Оптимизация">Обсудить оптимизацию →</a>
+      </article>
+      <article class="svc-card">
+        <div class="svc-n">04</div>
+        <h3>Доработка готовых плагинов</h3>
+        <p>Новая функция, исправление ошибок или перенос на свежую версию сервера.</p>
+        <a href="#contact" class="more" data-kind="Доработка плагина">Обсудить доработку →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="kicker">// процесс</div>
+    <h2>Как проходит работа</h2>
+    <p class="sub">Вы знаете, что происходит с плагином, на каждом шаге.</p>
+    <ol class="steps">
+      <li><h3>Заявка</h3><p>Описываете идею, версию и ядро сервера. Отвечу в течение дня.</p></li>
+      <li><h3>Обсуждение</h3><p>Уточняю механику, команды и права, согласуем объём и сроки.</p></li>
+      <li><h3>Разработка</h3><p>Пишу плагин и показываю промежуточные версии.</p></li>
+      <li><h3>Сдача</h3><p>Передаю .jar, конфиги, описание команд и исходники.</p></li>
+      <li><h3>Правки</h3><p>Исправляю, если что-то работает не так, как договаривались.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="faq" class="alt">
+  <div class="wrap">
+    <div class="kicker">// вопросы</div>
+    <h2>Частые вопросы</h2>
+    <p class="sub">Не нашли ответ — спросите в телеграме <a href="https://t.me/ruha_42" class="more">@ruha_42</a></p>
+    <div class="faq">
+      <details>
+        <summary>Под какие ядра пишете?</summary>
+        <p>Bukkit, Spigot и Paper. Укажите в заявке ядро и версию сервера — от этого зависит, какие возможности API доступны.</p>
+      </details>
+      <details>
+        <summary>Что нужно, чтобы начать?</summary>
+        <p>Опишите своими словами, что должен делать плагин: какие команды, кто может ими пользоваться, что видят игроки. Готового ТЗ не нужно — детали уточним в разговоре.</p>
+      </details>
+      <details>
+        <summary>Исходники будут мои?</summary>
+        <p>Да. Вместе с .jar передаю исходный код — плагин можно дорабатывать дальше самому или с другим разработчиком.</p>
+      </details>
+      <details>
+        <summary>Можете доработать чужой плагин?</summary>
+        <p>Да, если есть исходный код. Сначала разберусь, как он устроен, и скажу, что можно сделать.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="kicker">// заявка</div>
+      <h2>Расскажите об идее</h2>
+      <p class="direct">
+        Или напишите напрямую:<br>
+        <a href="https://t.me/ruha_42">@ruha_42</a> в телеграме<br>
+        <a href="mailto:rusikaid50@gmail.com">rusikaid50@gmail.com</a>
+      </p>
+    </div>
+
+    <form class="form" id="contactForm" action="https://formspree.io/f/mgogopkp" method="POST"
+          data-sending="Отправляю…" data-sent="Заявка отправлена"
+          data-ok="Заявка отправлена. Отвечу в течение дня."
+          data-err='Заявка не отправилась. Попробуйте ещё раз или напишите в <a href="https://t.me/ruha_42">телеграм</a>.'>
+      <input type="hidden" name="Страница" value="Minecraft (RU)">
+      <div class="field-row">
+        <div class="field">
+          <label for="name">Как вас зовут</label>
+          <input id="name" name="Имя" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="contact-field">Почта, телеграм или Discord</label>
+          <input id="contact-field" name="Контакт" type="text" required>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="kind">Что нужно</label>
+          <select id="kind" name="Тип задачи">
+            <option>Механика / мини-игра</option>
+            <option>Система (экономика, права, база)</option>
+            <option>Оптимизация</option>
+            <option>Доработка плагина</option>
+            <option>Другое</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="core">Ядро и версия <span>(если знаете)</span></label>
+          <input id="core" name="Ядро и версия" type="text" placeholder="Paper 1.21">
+        </div>
+      </div>
+      <div class="field">
+        <label for="msg">Что должен делать плагин</label>
+        <textarea id="msg" name="Сообщение" placeholder="Команды, механика, кто может пользоваться, к какому сроку нужно." required></textarea>
+      </div>
+      <button type="submit" class="btn btn-a">Отправить заявку</button>
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <a href="/" class="logo"><img src="/favicon.svg" width="24" height="24" alt="">ruha42<b>::</b>dev</a>
+    <div class="foot-links">
+      <a href="/">Десктопные программы</a>
+      <a href="/cv/">Резюме</a>
+      <a href="https://github.com/Ruha24">GitHub</a>
+      <a href="https://t.me/ruha_42">Telegram</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

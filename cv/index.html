@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Руслан Иванов — C++ / Qt разработчик</title>
+<meta name="description" content="Резюме C++ разработчика: три года коммерческой разработки десктопных приложений на C++17/20, Qt, PostgreSQL, CMake.">
+<meta name="theme-color" content="#0B0D10">
+
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://ruha24.github.io/cv/">
+<meta property="og:title" content="Руслан Иванов — C++ / Qt разработчик">
+<meta property="og:description" content="Десктопные приложения на C#, C++ и Qt: от утилит до CRM. Три года коммерческой разработки.">
+<meta property="og:image" content="https://ruha24.github.io/og-cv.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://ruha24.github.io/cv/">
+<link rel="alternate" hreflang="ru" href="https://ruha24.github.io/cv/">
+<link rel="alternate" hreflang="en" href="https://ruha24.github.io/en/cv/">
+<link rel="alternate" hreflang="x-default" href="https://ruha24.github.io/cv/">
+
+<script>
+(function(){
+  try{
+    if(localStorage.getItem('lang')) return;
+    var ruReaders = ['ru','uk','be','kk'];
+    var langs = navigator.languages || [navigator.language || ''];
+    var readsRu = langs.some(function(l){ return ruReaders.indexOf((l||'').slice(0,2).toLowerCase()) !== -1; });
+    if(!readsRu) location.replace('/en/cv/');
+  }catch(e){}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/site.js" defer></script>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <a href="/" class="logo"><img src="/favicon.svg" width="24" height="24" alt="">ruha42<b>::</b>dev</a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#works">Проекты</a>
+        <a href="#about">Обо мне</a>
+        <a href="#contact">Контакты</a>
+        <span class="sep" aria-hidden="true"></span>
+        <a href="/">Заказать разработку</a>
+      </div>
+      <div class="lang">
+        <a href="/cv/" class="on" data-lang="ru" aria-current="page">RU</a>
+        <a href="/en/cv/" data-lang="en">EN</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-in solo">
+    <div>
+      <div class="status"><span class="dot"></span>Открыт к предложениям о работе</div>
+      <h1>Разрабатываю десктопные приложения на <em>C# и C++</em></h1>
+      <p class="lede">Три года коммерческой разработки: C#, C++17/20, Qt, PostgreSQL. Люблю разбираться в чужом коде и делать его быстрее.</p>
+      <div class="btns">
+        <a href="https://t.me/ruha_42" class="btn btn-a">Написать в телеграм</a>
+        <a href="https://github.com/Ruha24" class="btn btn-b">GitHub</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="works" class="alt">
+  <div class="wrap">
+    <h2>Проекты</h2>
+    <p class="sub">Собственные инструменты и коммерческие задачи. Почти всё с открытым кодом — карточка ведёт на GitHub.</p>
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="shot"><img src="/img/yamleditor.png" alt="" loading="lazy" onerror="this.parentElement.remove()"></div>
+        <div class="card-meta">2026, open source</div>
+        <h3>YamlEditor</h3>
+        <p>Десктопный редактор YAML-конфигов с деревом ключей и значений. Для тех, кто правит конфиги руками и устал считать отступы.</p>
+        <ul>
+          <li>Редактирование в дереве, фильтр по ключам</li>
+          <li>Поиск и замена с regex</li>
+          <li>Вкладки: файл, несколько файлов или папка целиком</li>
+          <li>Локализация RU / EN, тёмная тема</li>
+        </ul>
+        <div class="tags"><span class="tag">C++17</span><span class="tag">Qt 6</span><span class="tag">CMake</span><span class="tag">yaml-cpp</span></div>
+        <a href="https://github.com/Ruha24/YamlEditor" class="card-link">Код на GitHub</a>
+      </article>
+
+      <article class="card">
+        <div class="shot"><img src="/img/processlauncher.png" alt="" loading="lazy" onerror="this.parentElement.remove()"></div>
+        <div class="card-meta">2026, open source</div>
+        <h3>Process Launcher</h3>
+        <p>Лаунчер для Windows и macOS: добавил программы один раз — запускаешь кликом, горячей клавишей или целой группой.</p>
+        <ul>
+          <li>Следит за процессами, перезапускает упавшие</li>
+          <li>Профили-вкладки: «Работа», «Игры»</li>
+          <li>Горячие клавиши и автозапуск с системой</li>
+          <li>Собранные установщики под обе платформы</li>
+        </ul>
+        <div class="tags"><span class="tag">C++</span><span class="tag">QML</span><span class="tag">Qt Quick</span><span class="tag">CMake</span></div>
+        <a href="https://github.com/Ruha24/ProcessLauncher" class="card-link">Код на GitHub</a>
+      </article>
+
+      <article class="card">
+        <div class="shot"><img src="/img/monitorprice.png" alt="" loading="lazy" onerror="this.parentElement.remove()"></div>
+        <div class="card-meta">2025, коммерческий проект</div>
+        <h3>MonitorPrice</h3>
+        <p>Клиент-серверная система мониторинга цен. Подписываешься на товар — приходит уведомление, когда цена упала.</p>
+        <ul>
+          <li>Данные с API <strong>быстрее на 30%</strong> за счёт асинхронных запросов</li>
+          <li>Уведомления о снижении цены в Telegram</li>
+          <li>История цен и авторизация пользователей</li>
+        </ul>
+        <div class="tags"><span class="tag">C++</span><span class="tag">Qt</span><span class="tag">PostgreSQL</span><span class="tag">Python</span><span class="tag">Telegram API</span></div>
+        <a href="https://github.com/Ruha24/MonitorPrice" class="card-link">Код на GitHub</a>
+      </article>
+
+      <article class="card">
+        <div class="shot"><img src="/img/hotel.png" alt="" loading="lazy" onerror="this.parentElement.remove()"></div>
+        <div class="card-meta">2024, коммерческий проект</div>
+        <h3>CRM для гостиницы</h3>
+        <p>Десктопная система управления номерами и бронированиями. Полный CRUD по номерам, клиентам и броням.</p>
+        <ul>
+          <li>Выборка из БД <strong>быстрее на 40%</strong>: оптимизация запросов и кеш</li>
+          <li>Главное окно грузится <strong>на 35% быстрее</strong></li>
+          <li>Ленивая инициализация виджетов</li>
+        </ul>
+        <div class="tags"><span class="tag">C++</span><span class="tag">Qt Widgets</span><span class="tag">PostgreSQL</span></div>
+        <a href="https://github.com/Ruha24/HotelQt" class="card-link">Код на GitHub</a>
+      </article>
+
+    </div>
+
+    <article class="side">
+      <div>
+        <h3>Также: плагины для Minecraft-серверов</h3>
+        <p>Пишу серверные плагины на Java под Bukkit / Spigot / Paper — от небольших механик до систем под конкретный проект: экономика, права, работа с базой, оптимизация под онлайн.</p>
+        <div class="tags"><span class="tag">Java</span><span class="tag">Bukkit</span><span class="tag">Spigot</span><span class="tag">Paper</span><span class="tag">Maven</span></div>
+      </div>
+      <a href="https://black-minecraft.com/threads/java-razrabotchik-pod-bukkit-spigot-paper.15407/" class="card-link">Тема с резюме</a>
+    </article>
+
+    <p class="gh-note">Остальное, включая учебные проекты, — на <a href="https://github.com/Ruha24">github.com/Ruha24</a></p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <h2>Обо мне</h2>
+    <div class="who">
+      <div>
+        <p>Три года пишу десктопное ПО на C#, C++ и Qt — от небольших утилит до CRM. Плюс Java-разработка под Minecraft: <strong>плагины для Bukkit / Spigot / Paper.</strong></p>
+        <p>Интересно работать с существующим кодом: разбираться в чужой архитектуре, находить узкие места, ускорять.</p>
+        <p>Свои инструменты выкладываю в открытый доступ — код можно посмотреть до того, как соглашаться работать вместе.</p>
+      </div>
+      <aside class="stack-box">
+        <div class="stack-t">Основное</div>
+        <div class="chips"><span class="chip">C#</span><span class="chip">C++17/20</span><span class="chip">Qt Widgets</span><span class="chip">Qt Quick / QML</span><span class="chip">Windows Forms</span></div>
+        <div class="stack-t">Данные</div>
+        <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">SQL</span></div>
+        <div class="stack-t">Инструменты</div>
+        <div class="chips"><span class="chip">CMake</span><span class="chip">Git</span><span class="chip">SVN</span><span class="chip">MS Visual Studio</span></div>
+        <div class="stack-t">Minecraft</div>
+        <div class="chips"><span class="chip">Java</span><span class="chip">Bukkit</span><span class="chip">Spigot</span><span class="chip">Paper</span><span class="chip">Maven</span></div>
+        <div class="stack-t">Ещё</div>
+        <div class="chips"><span class="chip">Python</span></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="alt">
+  <div class="wrap">
+    <h2>Контакты</h2>
+    <p class="sub">Рассматриваю работу в команде. Быстрее всего отвечаю в телеграме.</p>
+    <p class="direct">
+      <a href="https://t.me/ruha_42">@ruha_42</a> в телеграме<br>
+      <a href="mailto:rusikaid50@gmail.com">rusikaid50@gmail.com</a><br>
+      <a href="https://github.com/Ruha24">github.com/Ruha24</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <a href="/" class="logo"><img src="/favicon.svg" width="24" height="24" alt="">ruha42<b>::</b>dev</a>
+    <div class="foot-links">
+      <a href="/">Разработка на заказ</a>
+      <a href="/minecraft/">Плагины Minecraft</a>
+      <a href="https://github.com/Ruha24">GitHub</a>
+      <a href="https://t.me/ruha_42">Telegram</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
